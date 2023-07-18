@@ -4,11 +4,11 @@ import os
 
 from peewee import CharField, TextField, BooleanField, DateTimeField, IntegerField, Model,MySQLDatabase
 # 从环境变量中读取数据库连接信息
-db_host = os.getenv('MYSQL_HOST') or 'db'  # 使用服务名作为主机名
-db_port = os.getenv('MYSQL_PORT') or 3306  # MySQL 的默认端口
-db_name = os.getenv('MYSQL_DATABASE')  # 假设你在 .env 文件中设置了这些环境变量
-db_user = os.getenv('MYSQL_USER')
-db_password = os.getenv('MYSQL_PASSWORD')
+db_host = os.getenv('MYSQLHOST') or 'db'  # 使用服务名作为主机名
+db_port = os.getenv('MYSQLPORT') or 3306  # MySQL 的默认端口
+db_name = os.getenv('MYSQLDATABASE') or os.getenv('MYSQL_DATABASE')  # 假设你在 .env 文件中设置了这些环境变量
+db_user = os.getenv('MYSQLUSER') or os.getenv('MYSQL_USER')
+db_password = os.getenv('MYSQLPASSWORD') or os.getenv('MYSQL_PASSWORD')
 
 database = MySQLDatabase(
     db_name,
