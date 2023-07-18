@@ -95,7 +95,6 @@ def create_task():
                 task_type="imagine")
     return jsonify({})
 
-
 @app.route("/card_message", methods=["POST"])
 def card_message():
     try:
@@ -131,6 +130,9 @@ def card_message():
         LOGGER.error("card_message error", exc_info=True)
         return jsonify({})
 
+@app.route("/health", methods=["GET"])
+def health_check():
+    return jsonify({"status": "success", "message": "API is healthy"}), 200
 
 def main():
     app.run()
